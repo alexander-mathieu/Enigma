@@ -8,18 +8,18 @@ class KeyGenerator
   end
 
   def key
-    key_array.join.to_i
+    key_array.join
   end
 
   def key_array
-    5.times.map {SecureRandom.random_number(9)}
+    5.times.map {SecureRandom.random_number(9).to_s}
   end
 
   def key_assignment
-    {"A" => key_array[0..1].join.to_i,
-     "B" => key_array[1..2].join.to_i,
-     "C" => key_array[2..3].join.to_i,
-     "D" => key_array[3..4].join.to_i}
+    {"A" => key_array[0..1].join,
+     "B" => key_array[1..2].join,
+     "C" => key_array[2..3].join,
+     "D" => key_array[3..4].join}
   end
 
 end
