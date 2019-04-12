@@ -12,6 +12,10 @@ class OffsetGenerator
     default.strftime("%m%d%y")
   end
 
+  def stringify
+    square_date.to_s
+  end
+
   def square_date
     date_to_integer ** 2
   end
