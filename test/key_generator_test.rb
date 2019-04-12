@@ -16,7 +16,7 @@ class KeyGeneratorTest < MiniTest::Test
   end
 
   def test_it_can_combine_array_into_a_key
-    assert_includes 50000..99999, @key_generator.key
+    assert_includes 0..99999, @key_generator.key
   end
 
   def test_the_key_is_5_digits
