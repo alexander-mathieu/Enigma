@@ -11,4 +11,8 @@ class OffsetGeneratorTest < MiniTest::Test
     assert_instance_of OffsetGenerator, @offset_generator
   end
 
+  def test_by_default_it_has_a_date
+    assert_equal "041219", @offset_generator.date
+  end
+
 end
