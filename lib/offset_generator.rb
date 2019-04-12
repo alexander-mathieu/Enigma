@@ -29,4 +29,11 @@ class OffsetGenerator
     @date.to_i
   end
 
+  def offset_assignment
+    {"A" => last_four_digits[0],
+     "B" => last_four_digits[1],
+     "C" => last_four_digits[2],
+     "D" => last_four_digits[3]}
+  end
+
 end

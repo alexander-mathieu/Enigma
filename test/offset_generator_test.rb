@@ -31,4 +31,13 @@ class OffsetGeneratorTest < MiniTest::Test
     assert_equal [5, 9, 6, 1], @offset_generator.last_four_digits
   end
 
+  def test_it_can_assign_an_offset
+    expected = {"A" => 5,
+                "B" => 9,
+                "C" => 6,
+                "D" => 1}
+
+    assert_equal expected, @offset_generator.offset_assignment
+  end
+
 end
