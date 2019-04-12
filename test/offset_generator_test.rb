@@ -15,4 +15,8 @@ class OffsetGeneratorTest < MiniTest::Test
     assert_equal "041219", @offset_generator.date
   end
 
+  def test_it_can_turn_the_date_into_an_integer
+    assert_equal 41219, @offset_generator.date_to_integer
+  end
+
 end

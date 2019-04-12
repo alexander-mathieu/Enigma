@@ -12,4 +12,8 @@ class OffsetGenerator
     default.strftime("%m%d%y")
   end
 
+  def date_to_integer
+    @date.to_i
+  end
+
 end
