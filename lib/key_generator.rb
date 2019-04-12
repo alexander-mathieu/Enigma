@@ -7,7 +7,11 @@ class KeyGenerator
   end
 
   def key
-    5.times.map {SecureRandom.random_number(9)}.join.to_i
+    key_array.join.to_i
+  end
+
+  def key_array
+    5.times.map {SecureRandom.random_number(9)}
   end
 
 end

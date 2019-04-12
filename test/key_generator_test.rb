@@ -11,7 +11,11 @@ class KeyGeneratorTest < MiniTest::Test
     assert_instance_of KeyGenerator, @key_generator
   end
 
-  def test_it_has_a_random_key
+  def test_it_generates_an_array_of_5_numbers
+    assert_equal 5, @key_generator.key_array.length
+  end
+
+  def test_it_can_combine_array_into_a_key
     assert_includes 0..99999, @key_generator.key
   end
 
