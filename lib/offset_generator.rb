@@ -12,9 +12,8 @@ class OffsetGenerator
     default.strftime("%m%d%y")
   end
 
-  def last_four_digits
-    last_four = stringify.split("").last(4)
-    last_four.map {|digit| digit.to_i}
+  def offset_array
+    stringify.split("").last(4)
   end
 
   def stringify
@@ -30,10 +29,10 @@ class OffsetGenerator
   end
 
   def offset_assignment
-    {"A" => last_four_digits[0],
-     "B" => last_four_digits[1],
-     "C" => last_four_digits[2],
-     "D" => last_four_digits[3]}
+    {"A" => offset_array[0],
+     "B" => offset_array[1],
+     "C" => offset_array[2],
+     "D" => offset_array[3]}
   end
 
 end

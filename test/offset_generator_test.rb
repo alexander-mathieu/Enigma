@@ -28,14 +28,14 @@ class OffsetGeneratorTest < MiniTest::Test
   end
 
   def test_it_can_return_the_last_four_digits_of_date_as_array
-    assert_equal [5, 9, 6, 1], @offset_generator.last_four_digits
+    assert_equal ["5", "9", "6", "1"], @offset_generator.offset_array
   end
 
   def test_it_can_assign_an_offset
-    expected = {"A" => 5,
-                "B" => 9,
-                "C" => 6,
-                "D" => 1}
+    expected = {"A" => "5",
+                "B" => "9",
+                "C" => "6",
+                "D" => "1"}
 
     assert_equal expected, @offset_generator.offset_assignment
   end
