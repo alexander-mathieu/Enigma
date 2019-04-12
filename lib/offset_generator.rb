@@ -12,6 +12,11 @@ class OffsetGenerator
     default.strftime("%m%d%y")
   end
 
+  def last_four_digits
+    last_four = stringify.split("").last(4)
+    last_four.map {|digit| digit.to_i}
+  end
+
   def stringify
     square_date.to_s
   end

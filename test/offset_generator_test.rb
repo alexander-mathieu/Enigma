@@ -4,7 +4,7 @@ require './lib/offset_generator'
 class OffsetGeneratorTest < MiniTest::Test
 
   def setup
-    @offset_generator = OffsetGenerator.new
+    @offset_generator = OffsetGenerator.new("041219")
   end
 
   def test_it_exists
@@ -25,6 +25,10 @@ class OffsetGeneratorTest < MiniTest::Test
 
   def test_it_can_stringify_the_squared_date
     assert_equal "1699005961", @offset_generator.stringify
+  end
+
+  def test_it_can_return_the_last_four_digits_of_date_as_array
+    assert_equal [5, 9, 6, 1], @offset_generator.last_four_digits
   end
 
 end
