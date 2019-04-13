@@ -1,8 +1,11 @@
 require './lib/key_generator'
-require './lib/offset_generator'
+require './lib/date_generator'
 require './lib/caesar_cipher'
+require './lib/assignable'
 
 class Enigma
+  include Assignable
+
   attr_reader :message,
               :key,
               :date
@@ -18,7 +21,9 @@ class Enigma
   end
 
   def default_date
-    OffsetGenerator.new.date
+    DateGenerator.new.date
   end
+
+
 
 end

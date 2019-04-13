@@ -1,6 +1,6 @@
 require 'date'
 
-class OffsetGenerator
+class DateGenerator
   attr_reader :date
 
   def initialize
