@@ -19,5 +19,4 @@ class ShiftCalculatorTest < MiniTest::Test
     assert_equal "9761", @shift_calculator.offset
   end
 
-
 end

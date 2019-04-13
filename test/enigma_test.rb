@@ -1,6 +1,7 @@
 require './test/test_helper'
-require './lib/key_generator'
+require './lib/shift_calculator'
 require './lib/date_generator'
+require './lib/key_generator'
 require './lib/caesar_cipher'
 require './lib/offsetter'
 require './lib/enigma'
