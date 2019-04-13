@@ -7,4 +7,12 @@ class OffsetterTest < MiniTest::Test
     @offsetter = Offsetter.new("041319")
   end
 
+  def test_it_exists
+    assert_instance_of Offsetter, @offsetter
+  end
+
+  def test_it_has_a_date
+    assert_equal "041319", @offsetter.date
+  end
+
 end
