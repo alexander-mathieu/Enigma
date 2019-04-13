@@ -1,18 +1,19 @@
 require 'securerandom'
 
 class KeyGenerator
+  attr_reader :key
 
-  def initialize
+  def initialize(key = default)
     @key            = key
     @key_assignment = key_assignment
   end
 
-  def key
-    key_array.join
+  def default
+    5.times.map {SecureRandom.random_number(9).to_s}.join
   end
 
   def key_array
-    5.times.map {SecureRandom.random_number(9).to_s}
+    @key.split("")
   end
 
   def key_assignment
