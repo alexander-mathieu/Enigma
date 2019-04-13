@@ -9,4 +9,8 @@ class Offsetter
     @date.to_i
   end
 
+  def square_date
+    date_to_integer ** 2
+  end
+
 end

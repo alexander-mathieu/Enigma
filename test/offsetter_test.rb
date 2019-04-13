@@ -19,4 +19,8 @@ class OffsetterTest < MiniTest::Test
     assert_equal 41319, @offsetter.date_to_integer
   end
 
+  def test_it_can_square_integer_date
+    assert_equal 1707259761, @offsetter.square_date
+  end
+
 end
