@@ -2,6 +2,7 @@ require './test/test_helper'
 require './lib/key_generator'
 require './lib/date_generator'
 require './lib/caesar_cipher'
+require './lib/offsetter'
 require './lib/enigma'
 
 class EnigmaTest < MiniTest::Test
@@ -28,6 +29,10 @@ class EnigmaTest < MiniTest::Test
     assert_instance_of String, @enigma.date
 
     assert_equal 6, @enigma.date.length
+  end
+
+  def test_it_has_an_offset
+    assert_equal "9761", @enigma.offset
   end
 
 end

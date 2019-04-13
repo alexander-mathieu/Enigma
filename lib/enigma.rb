@@ -8,12 +8,14 @@ class Enigma
 
   attr_reader :message,
               :key,
-              :date
+              :date,
+              :offset
 
   def initialize(message, key = default_key, date = default_date)
     @message = message
     @key     = key
     @date    = date
+    @offset  = Offsetter.new(date).offset
   end
 
   def default_key
@@ -23,7 +25,5 @@ class Enigma
   def default_date
     DateGenerator.new.date
   end
-
-
 
 end
