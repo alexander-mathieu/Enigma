@@ -1,0 +1,3 @@
+class Offsetter
+
+end
