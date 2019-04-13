@@ -1,11 +1,11 @@
 require './lib/shift_calculator'
-require './lib/date_generator'
 require './lib/caesar_cipher'
 require './lib/offsetter'
 require './lib/keyable'
+require './lib/datable'
 
 class Enigma
-  include Keyable
+  include Keyable, Datable
 
   attr_reader :message,
               :key,
@@ -24,7 +24,7 @@ class Enigma
   end
 
   def default_date
-    DateGenerator.new.date
+    self.generate_date
   end
 
 end
