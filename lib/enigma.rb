@@ -14,11 +14,11 @@ class Enigma
   end
 
   def default_key
-    KeyGenerator.new
+    KeyGenerator.new.key
   end
 
   def default_date
-    OffsetGenerator.new
+    OffsetGenerator.new.date
   end
 
 end
