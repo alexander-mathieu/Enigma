@@ -1,13 +1,8 @@
 require 'securerandom'
 
-class KeyGenerator
-  attr_reader :key
+module Keyable
 
-  def initialize
-    @key = key
-  end
-
-  def key
+  def generate_key
     5.times.map {SecureRandom.random_number(9).to_s}.join
   end
 
