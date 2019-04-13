@@ -3,27 +3,23 @@ require './lib/caesar_cipher'
 
 class CaesarCipherTest < MiniTest::Test
 
-  def test_it_exists
+  def setup
     @caesar_cipher = CaesarCipher.new("a", "4")
-    
+  end
+
+  def test_it_exists
     assert_instance_of CaesarCipher, @caesar_cipher
   end
 
-  def test_it_has_a_letter
-    @caesar_cipher = CaesarCipher.new("a", "4")
-
-    assert_equal "a", @caesar_cipher.letter
+  def test_it_has_a_character
+    assert_equal "a", @caesar_cipher.character
   end
 
   def test_it_has_a_shift_value
-    @caesar_cipher = CaesarCipher.new("a", "4")
-
     assert_equal 4, @caesar_cipher.shift_value
   end
 
   def test_it_has_an_alphabet
-    @caesar_cipher = CaesarCipher.new("a", "4")
-
     expected = ["a", "b", "c", "d",
                 "e", "f", "g", "h",
                 "i", "j", "k", "l",
@@ -36,15 +32,13 @@ class CaesarCipherTest < MiniTest::Test
   end
 
   def test_it_can_encode_letter_using_shift_value
-    @caesar_cipher = CaesarCipher.new("a", "4")
-
     assert_equal "e", @caesar_cipher.encode
   end
 
   def test_it_returns_characters_not_included_in_alphabet
-    @caesar_cipher = CaesarCipher.new("/", "4")
+    @caesar_cipher_2 = CaesarCipher.new("/", "4")
 
-    assert_equal "/", @caesar_cipher.encode
+    assert_equal "/", @caesar_cipher_2.encode
   end
 
 end

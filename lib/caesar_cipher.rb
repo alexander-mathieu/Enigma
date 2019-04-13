@@ -1,19 +1,19 @@
 class CaesarCipher
-  attr_reader :letter,
+  attr_reader :character,
               :shift_value,
               :alphabet
 
-  def initialize(letter, shift_value)
-    @letter      = letter
+  def initialize(character, shift_value)
+    @character      = character
     @shift_value = shift_value.to_i
     @alphabet    = ('a'..'z').to_a << " "
   end
 
   def encode
-    if @alphabet.include?(@letter)
+    if @alphabet.include?(@character)
       @alphabet.rotate(@shift_value).first
     else
-      @letter
+      @character
     end
   end
 
