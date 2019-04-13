@@ -27,4 +27,8 @@ class OffsetterTest < MiniTest::Test
     assert_equal "1707259761", @offsetter.stringify
   end
 
+  def test_it_can_return_an_offset
+    assert_equal "9761", @offsetter.offset
+  end
+
 end

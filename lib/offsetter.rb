@@ -17,4 +17,8 @@ class Offsetter
     square_date.to_s
   end
 
+  def offset
+    stringify.split("").last(4).join
+  end
+
 end
