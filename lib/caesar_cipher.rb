@@ -9,6 +9,8 @@ class CaesarCipher
     @alphabet    = ('a'..'z').to_a << " "
   end
 
-  
+  def encode
+    @alphabet.rotate(@shift_value).first
+  end
 
 end
