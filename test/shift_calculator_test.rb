@@ -19,4 +19,13 @@ class ShiftCalculatorTest < MiniTest::Test
     assert_equal "9761", @shift_calculator.offset
   end
 
+  def test_it_can_assign_keys_to_values
+    expected = {"A" => 51,
+                "B" => 12,
+                "C" => 24,
+                "D" => 44}
+
+    assert_equal expected, @shift_calculator.key_assignment
+  end
+
 end
