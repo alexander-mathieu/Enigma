@@ -23,4 +23,8 @@ class OffsetterTest < MiniTest::Test
     assert_equal 1707259761, @offsetter.square_date
   end
 
+  def test_it_can_stringify_the_squared_date
+    assert_equal "1707259761", @offsetter.stringify
+  end
+
 end

@@ -13,4 +13,8 @@ class Offsetter
     date_to_integer ** 2
   end
 
+  def stringify
+    square_date.to_s
+  end
+
 end
