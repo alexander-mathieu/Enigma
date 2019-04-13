@@ -28,4 +28,13 @@ class ShiftCalculatorTest < MiniTest::Test
     assert_equal expected, @shift_calculator.key_assignment
   end
 
+  def test_it_can_assign_offset_to_values
+    expected = {"A" => 9,
+                "B" => 7,
+                "C" => 6,
+                "D" => 1}
+
+    assert_equal expected, @shift_calculator.offset_assignment
+  end
+
 end

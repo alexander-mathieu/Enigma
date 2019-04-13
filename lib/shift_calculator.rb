@@ -14,4 +14,11 @@ class ShiftCalculator
      "D" => @key[3..4].to_i}
   end
 
+  def offset_assignment
+    {"A" => @offset[0].to_i,
+     "B" => @offset[1].to_i,
+     "C" => @offset[2].to_i,
+     "D" => @offset[3].to_i}
+  end
+
 end
