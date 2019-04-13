@@ -28,11 +28,4 @@ class OffsetGenerator
     @date.to_i
   end
 
-  def offset_assignment
-    {"A" => offset_array[0],
-     "B" => offset_array[1],
-     "C" => offset_array[2],
-     "D" => offset_array[3]}
-  end
-
 end
