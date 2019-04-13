@@ -20,13 +20,13 @@ class EnigmaTest < MiniTest::Test
     assert_equal "Balloons", @enigma.message
   end
 
-  def test_by_default_it_has_a_5_digit_key
+  def test_by_default_it_generates_a_5_digit_key
     assert_instance_of String, @enigma.key
 
     assert_equal 5, @enigma.key.length
   end
 
-  def test_by_default_it_has_a_6_digit_date
+  def test_by_default_it_generates_a_6_digit_date
     assert_instance_of String, @enigma.date
 
     assert_equal 6, @enigma.date.length
