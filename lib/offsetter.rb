@@ -5,4 +5,8 @@ class Offsetter
     @date = date
   end
 
+  def date_to_integer
+    @date.to_i
+  end
+
 end
