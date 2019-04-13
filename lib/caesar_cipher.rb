@@ -4,7 +4,7 @@ class CaesarCipher
               :alphabet
 
   def initialize(character, shift_value)
-    @character      = character
+    @character   = character
     @shift_value = shift_value.to_i
     @alphabet    = ('a'..'z').to_a << " "
   end
