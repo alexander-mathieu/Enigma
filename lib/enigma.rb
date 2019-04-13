@@ -1,9 +1,24 @@
-class Enigma
+require './lib/key_generator'
+require './lib/offset_generator'
+require './lib/caesar_cipher'
 
-  def initialize(message, key, date)
+class Enigma
+  attr_reader :message,
+              :key,
+              :date
+
+  def initialize(message, key = default_key, date = default_date)
     @message = message
     @key     = key
     @date    = date
+  end
+
+  def default_key
+    KeyGenerator.new
+  end
+
+  def default_date
+    OffsetGenerator.new
   end
 
 end
