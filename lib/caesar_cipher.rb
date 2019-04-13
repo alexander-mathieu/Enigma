@@ -10,7 +10,11 @@ class CaesarCipher
   end
 
   def encode
-    @alphabet.rotate(@shift_value).first
+    if @alphabet.include?(@letter)
+      @alphabet.rotate(@shift_value).first
+    else
+      @letter
+    end
   end
 
 end
