@@ -1,8 +1,10 @@
 class ShiftCalculator
+  attr_reader :key,
+              :offset
 
-  def initialize(key, date)
+  def initialize(key, offset)
     @key  = key
-    @date = date
+    @offset = offset
   end
 
 end
