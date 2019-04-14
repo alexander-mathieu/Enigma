@@ -16,9 +16,17 @@ class EnigmaTest < MiniTest::Test
     assert_instance_of Enigma, @enigma
   end
 
+  def test_it_has_access_to_a_cipher
+    assert_instance_of CaesarCipher, @enigma.cipher
+  end
+
+  def test_it_has_access_to_a_shift_calculator
+    assert_instance_of ShiftCalculator, @enigma.shift_calculator
+  end
+
   def test_by_default_it_generates_a_5_digit_key
     assert_instance_of String, @enigma.key
-    
+
     assert_equal 5, @enigma.key.length
   end
 
