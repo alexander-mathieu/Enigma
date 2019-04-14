@@ -14,8 +14,8 @@ class ShiftCalculator
      "D" => offset[3].to_i}
   end
 
-  def total_shift(key_shift, offset_shift)
-    key_shift.merge(offset_shift) do |key, key_value, offset_value|
+  def total_shift(key, offset)
+    key_shift(key).merge(offset_shift(offset)) do |hash_key, key_value, offset_value|
       key_value + offset_value
     end
   end
