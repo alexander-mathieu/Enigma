@@ -4,6 +4,7 @@ SimpleCov.start
 
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
 
 require './lib/shift_calculator'
 require './lib/caesar_cipher'
