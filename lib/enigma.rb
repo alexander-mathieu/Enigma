@@ -1,11 +1,11 @@
-require './lib/offset_calculator'
 require './lib/shift_calculator'
 require './lib/caesar_cipher'
+require './lib/offsettable'
 require './lib/keyable'
 require './lib/datable'
 
 class Enigma
-  include Keyable, Datable
+  include Offsettable, Keyable, Datable
 
   attr_reader :message,
               :key,
@@ -16,7 +16,7 @@ class Enigma
     @message = message
     @key     = key
     @date    = date
-    @offset  = OffsetCalculator.new(date).offset
+    @offset  = self.calculate_offset(date)
   end
 
   def default_key

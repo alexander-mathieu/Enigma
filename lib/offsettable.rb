@@ -1,12 +1,7 @@
-class OffsetCalculator
-  attr_reader :date
-
-  def initialize(date)
-    @date = date
-  end
+module Offsettable
 
   def date_to_integer
-    @date.to_i
+    date.to_i
   end
 
   def square_date
@@ -17,7 +12,7 @@ class OffsetCalculator
     square_date.to_s
   end
 
-  def offset
+  def calculate_offset(date)
     stringify.split("").last(4).join
   end
 
