@@ -1,5 +1,13 @@
 class ShiftCalculator
 
+  def total_shift(key, offset)
+    key_shift(key).merge(offset_shift(offset)) do |hash_key, key_value, offset_value|
+      key_value + offset_value
+    end
+  end
+
+  private
+
   def key_shift(key)
     {"A" => key[0..1].to_i,
      "B" => key[1..2].to_i,
@@ -12,12 +20,6 @@ class ShiftCalculator
      "B" => offset[1].to_i,
      "C" => offset[2].to_i,
      "D" => offset[3].to_i}
-  end
-
-  def total_shift(key, offset)
-    key_shift(key).merge(offset_shift(offset)) do |hash_key, key_value, offset_value|
-      key_value + offset_value
-    end
   end
 
 end
