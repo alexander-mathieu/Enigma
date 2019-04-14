@@ -36,6 +36,10 @@ class EnigmaTest < MiniTest::Test
     assert_equal 6, @enigma.default_date.length
   end
 
+  def test_it_can_calculate_offset
+    assert_equal "3561", @enigma.offset
+  end
+
   def test_it_can_encrypt_characters
     assert_equal "tqxx letqcq", @enigma.encrypt("hello there", 12)
   end

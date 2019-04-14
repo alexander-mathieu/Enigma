@@ -7,10 +7,15 @@ require './lib/datable'
 class Enigma
   include Offsettable, Keyable, Datable
 
-  attr_reader :cipher,
+  attr_reader :key,
+              :date,
+              :cipher,
               :shifter
 
   def initialize
+    @key     = default_key
+    @date    = default_date
+    @offset  = offset
     @cipher  = CaesarCipher.new
     @shifter = ShiftCalculator.new
   end
@@ -23,8 +28,12 @@ class Enigma
     self.generate_date
   end
 
+  def offset
+    self.calculate_offset(@date)
+  end
+
   def encrypt(message, shift_value)
-    character_array = message.downcase.split("")
+    character_array = message.split("")
     character_array.map do |character|
       @cipher.encode(character, shift_value)
     end.join
