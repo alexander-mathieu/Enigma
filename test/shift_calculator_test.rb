@@ -7,16 +7,6 @@ class ShiftCalculatorTest < MiniTest::Test
     @shift_calculator = ShiftCalculator.new
     @key    = "51244"
     @offset = "9761"
-
-    @key_shift    = {"A" => 51,
-                     "B" => 12,
-                     "C" => 24,
-                     "D" => 44}
-
-    @offset_shift = {"A" => 9,
-                     "B" => 7,
-                     "C" => 6,
-                     "D" => 1}
   end
 
   def test_it_exists
@@ -47,7 +37,7 @@ class ShiftCalculatorTest < MiniTest::Test
                 "C" => 30,
                 "D" => 45}
 
-    assert_equal expected, @shift_calculator.total_shift(@key_shift, @offset_shift)
+    assert_equal expected, @shift_calculator.total_shift(@key, @offset)
   end
 
 end
