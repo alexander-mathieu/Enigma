@@ -1,4 +1,4 @@
-class Offsetter
+class OffsetCalculator
   attr_reader :date
 
   def initialize(date)
