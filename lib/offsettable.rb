@@ -4,7 +4,7 @@ module Offsettable
     stringify.split("").last(4).join
   end
 
-private
+  private
 
   def stringify
     square_date.to_s
