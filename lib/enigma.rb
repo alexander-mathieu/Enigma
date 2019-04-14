@@ -9,16 +9,16 @@ class Enigma
 
   attr_reader :key,
               :date,
-              :offset,
               :cipher,
-              :shifter
+              :shifter,
+              :new_message
 
   def initialize
-    @key     = nil
-    @date    = nil
-    @offset  = nil
-    @cipher  = CaesarCipher.new
-    @shifter = ShiftCalculator.new
+    @key         = key
+    @date        = date
+    @cipher      = CaesarCipher.new
+    @shifter     = ShiftCalculator.new
+    @new_message = []
   end
 
   def default_key
@@ -31,6 +31,17 @@ class Enigma
 
   def offset
     self.calculate_offset(@date)
+  end
+
+  def encrypt(message, key = default_key, date = default_date)
+    @key = key; @date = date
+    message.split("").each_slice(4) do |group|
+      new_message << @cipher.encode(group[0], total_shift["A"]) if !group[0].nil?
+      new_message << @cipher.encode(group[1], total_shift["B"]) if !group[1].nil?
+      new_message << @cipher.encode(group[2], total_shift["C"]) if !group[2].nil?
+      new_message << @cipher.encode(group[3], total_shift["D"]) if !group[3].nil?
+    end
+    new_message.join
   end
 
   def total_shift

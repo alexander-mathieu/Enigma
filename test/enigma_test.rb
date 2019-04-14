@@ -53,4 +53,8 @@ class EnigmaTest < MiniTest::Test
     assert_equal expected, @enigma.total_shift
   end
 
+  def test_it_can_encrypt_messages
+    assert_equal "vwv jyh", @enigma.encrypt("message")
+  end
+
 end
