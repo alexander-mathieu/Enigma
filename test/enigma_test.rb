@@ -9,20 +9,16 @@ require './lib/enigma'
 class EnigmaTest < MiniTest::Test
 
   def setup
-    @enigma = Enigma.new("Balloons")
+    @enigma = Enigma.new
   end
 
   def test_it_exists
     assert_instance_of Enigma, @enigma
   end
 
-  def test_it_has_a_message
-    assert_equal "Balloons", @enigma.message
-  end
-
   def test_by_default_it_generates_a_5_digit_key
     assert_instance_of String, @enigma.key
-
+    
     assert_equal 5, @enigma.key.length
   end
 
@@ -30,10 +26,6 @@ class EnigmaTest < MiniTest::Test
     assert_instance_of String, @enigma.date
 
     assert_equal 6, @enigma.date.length
-  end
-
-  def test_it_has_an_offset
-    assert_equal "9761", @enigma.offset
   end
 
 end
