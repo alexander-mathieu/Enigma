@@ -59,8 +59,12 @@ class EnigmaTest < MiniTest::Test
     assert_equal "agmqpiz", @enigma.shift_all_letters("message")
   end
 
-  # def test_it_can_encrypt_a_message
-  #   assert_equal "vwv jyh", @enigma.encrypt("message")
-  # end
+  def test_it_can_encrypt_a_message
+    expected = {:encryption => "agmqpiz",
+                :key        => "12424",
+                :date       => "041419"}
+
+    assert_equal expected, @enigma.encrypt("message")
+  end
 
 end

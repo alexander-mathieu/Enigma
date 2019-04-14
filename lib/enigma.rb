@@ -11,11 +11,13 @@ class Enigma
               :date,
               :cipher,
               :shifter,
+              :message,
               :new_message
 
   def initialize
     @key         = key
     @date        = date
+    @message     = message
     @cipher      = CaesarCipher.new
     @shifter     = ShiftCalculator.new
     @new_message = []
@@ -36,6 +38,7 @@ class Enigma
   def encrypt(message, key = default_key, date = default_date)
     @key = key; @date = date
     shift_all_letters(message)
+    encryption_hash
   end
 
   def shift_all_letters(message)
@@ -45,11 +48,17 @@ class Enigma
       new_message << @cipher.encode(group[2], total_shift["C"]) if !group[2].nil?
       new_message << @cipher.encode(group[3], total_shift["D"]) if !group[3].nil?
     end
-    new_message.join
+    @message = new_message.join
   end
 
   def total_shift
     @shifter.total_shift(key, offset)
+  end
+
+  def encryption_hash
+    {encryption: @message,
+     key:        @key,
+     date:       @date}
   end
 
 end
