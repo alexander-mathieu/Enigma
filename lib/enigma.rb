@@ -28,7 +28,7 @@ class Enigma
   end
 
   def default_date
-    self.generate_date
+    self.generate_formatted_date
   end
 
   def offset
