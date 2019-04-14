@@ -35,6 +35,10 @@ class Enigma
 
   def encrypt(message, key = default_key, date = default_date)
     @key = key; @date = date
+    shift_all_letters(message)
+  end
+
+  def shift_all_letters(message)
     message.split("").each_slice(4) do |group|
       new_message << @cipher.encode(group[0], total_shift["A"]) if !group[0].nil?
       new_message << @cipher.encode(group[1], total_shift["B"]) if !group[1].nil?
