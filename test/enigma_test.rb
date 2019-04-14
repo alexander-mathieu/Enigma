@@ -24,16 +24,20 @@ class EnigmaTest < MiniTest::Test
     assert_instance_of ShiftCalculator, @enigma.shifter
   end
 
-  def test_by_default_it_generates_a_5_digit_key
+  def test_it_can_generate_a_default_5_digit_key
     assert_instance_of String, @enigma.default_key
 
     assert_equal 5, @enigma.default_key.length
   end
 
-  def test_by_default_it_generates_a_6_digit_date
+  def test_it_can_generate_a_default_6_digit_date
     assert_instance_of String, @enigma.default_date
 
     assert_equal 6, @enigma.default_date.length
+  end
+
+  def test_it_can_encrypt_characters
+    assert_equal "tqxx letqcq", @enigma.encrypt("hello there", 12)
   end
 
 end

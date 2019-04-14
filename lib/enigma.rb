@@ -23,4 +23,11 @@ class Enigma
     self.generate_date
   end
 
+  def encrypt(message, shift_value)
+    character_array = message.downcase.split("")
+    character_array.map do |character|
+      @cipher.encode(character, shift_value)
+    end.join
+  end
+
 end
