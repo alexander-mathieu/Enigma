@@ -1,6 +1,6 @@
+require './lib/offset_calculator'
 require './lib/shift_calculator'
 require './lib/caesar_cipher'
-require './lib/offsetter'
 require './lib/keyable'
 require './lib/datable'
 
@@ -16,7 +16,7 @@ class Enigma
     @message = message
     @key     = key
     @date    = date
-    @offset  = Offsetter.new(date).offset
+    @offset  = OffsetCalculator.new(date).offset
   end
 
   def default_key
