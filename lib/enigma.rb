@@ -7,14 +7,10 @@ require './lib/datable'
 class Enigma
   include Offsettable, Keyable, Datable
 
-  attr_reader :key,
-              :date,
-              :cipher,
+  attr_reader :cipher,
               :shifter
 
-  def initialize(key = default_key, date = default_date)
-    @key     = key
-    @date    = date
+  def initialize
     @cipher  = CaesarCipher.new
     @shifter = ShiftCalculator.new
   end

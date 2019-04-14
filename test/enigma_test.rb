@@ -21,19 +21,19 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_it_has_access_to_a_shift_calculator
-    assert_instance_of ShiftCalculator, @enigma.shift_calculator
+    assert_instance_of ShiftCalculator, @enigma.shifter
   end
 
   def test_by_default_it_generates_a_5_digit_key
-    assert_instance_of String, @enigma.key
+    assert_instance_of String, @enigma.default_key
 
-    assert_equal 5, @enigma.key.length
+    assert_equal 5, @enigma.default_key.length
   end
 
   def test_by_default_it_generates_a_6_digit_date
-    assert_instance_of String, @enigma.date
+    assert_instance_of String, @enigma.default_date
 
-    assert_equal 6, @enigma.date.length
+    assert_equal 6, @enigma.default_date.length
   end
 
 end
