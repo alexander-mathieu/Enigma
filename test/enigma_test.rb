@@ -65,12 +65,20 @@ class EnigmaTest < MiniTest::Test
     assert_equal "message", @enigma.decode_all_letters("agmqpiz")
   end
 
-  def test_it_can_encrypt_a_message
+  def test_it_can_return_hash_with_encryption_values
     expected = {:encryption => "agmqpiz",
                 :key        => "12424",
                 :date       => "041419"}
 
-    assert_equal expected, @enigma.encrypt("message")
+    assert_equal expected, @enigma.encrypt("message", "12424", "041419")
+  end
+
+  def test_it_can_return_hash_with_decryption_values
+    expected = {:decryption => "message",
+                :key        => "12424",
+                :date       => "041419"}
+
+    assert_equal expected, @enigma.decrypt("agmqpiz", "12424", "041419")
   end
 
 end

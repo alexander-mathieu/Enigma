@@ -35,6 +35,10 @@ class Enigma
     self.calculate_offset(@date)
   end
 
+  def total_shift
+    @shifter.total_shift(key, offset)
+  end
+
   def encrypt(message, key = default_key, date = default_date)
     @key = key; @date = date
     encode_all_letters(message)
@@ -51,6 +55,18 @@ class Enigma
     @message = new_message.join
   end
 
+  def encryption_hash
+    {encryption: @message,
+     key:        @key,
+     date:       @date}
+  end
+
+  def decrypt(message, key, date = default_date)
+    @key = key; @date = date; @message = message
+    decode_all_letters(message)
+    decryption_hash
+  end
+
   def decode_all_letters(message)
     message.split("").each_slice(4) do |group|
       new_message << @cipher.decode(group[0], total_shift["A"]) if !group[0].nil?
@@ -61,12 +77,8 @@ class Enigma
     @message = new_message.join
   end
 
-  def total_shift
-    @shifter.total_shift(key, offset)
-  end
-
-  def encryption_hash
-    {encryption: @message,
+  def decryption_hash
+    {decryption: @message,
      key:        @key,
      date:       @date}
   end
