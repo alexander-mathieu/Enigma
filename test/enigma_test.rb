@@ -37,11 +37,20 @@ class EnigmaTest < MiniTest::Test
   end
 
   def test_it_can_calculate_offset
+    @enigma.stubs(date: "041419")
+
     assert_equal "3561", @enigma.offset
   end
 
-  def test_it_can_encrypt_characters
-    assert_equal "tqxx letqcq", @enigma.encrypt("hello there", 12)
+  def test_it_has_a_total_shift
+    @enigma.stubs(key: "12424", date: "041419")
+
+    expected = {"A" => 15,
+                "B" => 29,
+                "C" => 48,
+                "D" => 25}
+
+    assert_equal expected, @enigma.total_shift
   end
 
 end

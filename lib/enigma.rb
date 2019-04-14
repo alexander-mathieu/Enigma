@@ -9,13 +9,14 @@ class Enigma
 
   attr_reader :key,
               :date,
+              :offset,
               :cipher,
               :shifter
 
   def initialize
-    @key     = default_key
-    @date    = default_date
-    @offset  = offset
+    @key     = nil
+    @date    = nil
+    @offset  = nil
     @cipher  = CaesarCipher.new
     @shifter = ShiftCalculator.new
   end
@@ -32,11 +33,8 @@ class Enigma
     self.calculate_offset(@date)
   end
 
-  def encrypt(message, shift_value)
-    character_array = message.split("")
-    character_array.map do |character|
-      @cipher.encode(character, shift_value)
-    end.join
+  def total_shift
+    @shifter.total_shift(key, offset)
   end
 
 end
