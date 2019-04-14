@@ -7,20 +7,18 @@ class CaesarCipher
 
   def encode(character, shift_value)
     if @alphabet.include?(character)
-      new_value = Hash[@alphabet.zip(@alphabet.rotate(shift_value))]
+      Hash[@alphabet.zip(@alphabet.rotate(shift_value))][character]
     else
       return character
     end
-    new_value[character]
   end
 
   def decode(character, shift_value)
     if @alphabet.include?(character)
-      new_value = Hash[@alphabet.zip(@alphabet.rotate(-shift_value))]
+      Hash[@alphabet.zip(@alphabet.rotate(-shift_value))][character]
     else
       return character
     end
-    new_value[character]
   end
 
 end
