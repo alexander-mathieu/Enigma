@@ -35,7 +35,7 @@ class Enigma
     self.calculate_offset(@date)
   end
 
-  def total_shift
+  def shift
     @shifter.total_shift(key, offset)
   end
 
@@ -47,10 +47,10 @@ class Enigma
 
   def encode_all_letters(message)
     message.split("").each_slice(4) do |group|
-      new_message << @cipher.encode(group[0], total_shift["A"]) if !group[0].nil?
-      new_message << @cipher.encode(group[1], total_shift["B"]) if !group[1].nil?
-      new_message << @cipher.encode(group[2], total_shift["C"]) if !group[2].nil?
-      new_message << @cipher.encode(group[3], total_shift["D"]) if !group[3].nil?
+      new_message << @cipher.encode(group[0], shift["A"]) if !group[0].nil?
+      new_message << @cipher.encode(group[1], shift["B"]) if !group[1].nil?
+      new_message << @cipher.encode(group[2], shift["C"]) if !group[2].nil?
+      new_message << @cipher.encode(group[3], shift["D"]) if !group[3].nil?
     end
     @message = new_message.join
   end
@@ -69,10 +69,10 @@ class Enigma
 
   def decode_all_letters(message)
     message.split("").each_slice(4) do |group|
-      new_message << @cipher.decode(group[0], total_shift["A"]) if !group[0].nil?
-      new_message << @cipher.decode(group[1], total_shift["B"]) if !group[1].nil?
-      new_message << @cipher.decode(group[2], total_shift["C"]) if !group[2].nil?
-      new_message << @cipher.decode(group[3], total_shift["D"]) if !group[3].nil?
+      new_message << @cipher.decode(group[0], shift["A"]) if !group[0].nil?
+      new_message << @cipher.decode(group[1], shift["B"]) if !group[1].nil?
+      new_message << @cipher.decode(group[2], shift["C"]) if !group[2].nil?
+      new_message << @cipher.decode(group[3], shift["D"]) if !group[3].nil?
     end
     @message = new_message.join
   end

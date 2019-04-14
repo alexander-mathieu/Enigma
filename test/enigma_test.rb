@@ -50,7 +50,7 @@ class EnigmaTest < MiniTest::Test
                 "C" => 48,
                 "D" => 25}
 
-    assert_equal expected, @enigma.total_shift
+    assert_equal expected, @enigma.shift
   end
 
   def test_it_can_encode_all_letters_in_a_message
