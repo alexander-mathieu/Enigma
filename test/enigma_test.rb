@@ -36,13 +36,13 @@ class EnigmaTest < MiniTest::Test
     assert_equal 6, @enigma.default_date.length
   end
 
-  def test_it_can_calculate_offset
+  def test_it_can_calculate_offset_with_a_date
     @enigma.stubs(date: "041419")
 
     assert_equal "3561", @enigma.offset
   end
 
-  def test_it_has_a_total_shift
+  def test_it_has_total_shift_values
     @enigma.stubs(key: "12424", date: "041419")
 
     expected = {"A" => 15,
@@ -53,13 +53,13 @@ class EnigmaTest < MiniTest::Test
     assert_equal expected, @enigma.total_shift
   end
 
-  def test_it_can_encode_all_letters
+  def test_it_can_encode_all_letters_in_a_message
     @enigma.stubs(key: "12424", date: "041419")
 
     assert_equal "agmqpiz", @enigma.encode_all_letters("message")
   end
 
-  def test_it_can_decode_all_letters
+  def test_it_can_decode_all_letters_in_a_message
     @enigma.stubs(key: "12424", date: "041419")
 
     assert_equal "message", @enigma.decode_all_letters("agmqpiz")
@@ -70,7 +70,7 @@ class EnigmaTest < MiniTest::Test
                 :key        => "12424",
                 :date       => "041419"}
 
-    assert_equal expected, @enigma.encrypt("message", "12424", "041419")
+    assert_equal expected, @enigma.encrypt("message", "12424")
   end
 
   def test_it_can_return_hash_with_decryption_values
@@ -78,7 +78,7 @@ class EnigmaTest < MiniTest::Test
                 :key        => "12424",
                 :date       => "041419"}
 
-    assert_equal expected, @enigma.decrypt("agmqpiz", "12424", "041419")
+    assert_equal expected, @enigma.decrypt("agmqpiz", "12424")
   end
 
 end
