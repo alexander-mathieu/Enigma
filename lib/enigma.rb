@@ -24,7 +24,7 @@ class Enigma
   end
 
   def default_key
-    self.generate_key
+    self.generate_secure_key
   end
 
   def default_date
