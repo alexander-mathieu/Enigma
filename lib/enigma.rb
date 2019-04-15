@@ -41,11 +41,11 @@ class Enigma
 
   def encrypt(message, key = default_key, date = default_date)
     @key = key; @date = date
-    encode_all_letters(message)
+    encode_all_characters(message)
     encryption_hash
   end
 
-  def encode_all_letters(message)
+  def encode_all_characters(message)
     message.split("").each_slice(4) do |group|
       new_message << @cipher.encode(group[0], shift["A"]) if !group[0].nil?
       new_message << @cipher.encode(group[1], shift["B"]) if !group[1].nil?
@@ -63,11 +63,11 @@ class Enigma
 
   def decrypt(message, key, date = default_date)
     @key = key; @date = date; @message = message
-    decode_all_letters(message)
+    decode_all_characters(message)
     decryption_hash
   end
 
-  def decode_all_letters(message)
+  def decode_all_characters(message)
     message.split("").each_slice(4) do |group|
       new_message << @cipher.decode(group[0], shift["A"]) if !group[0].nil?
       new_message << @cipher.decode(group[1], shift["B"]) if !group[1].nil?
