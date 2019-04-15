@@ -53,16 +53,16 @@ class EnigmaTest < MiniTest::Test
     assert_equal expected, @enigma.shift
   end
 
-  def test_it_can_encode_all_letters_in_a_message
+  def test_it_can_encode_all_characters_in_a_message
     @enigma.stubs(key: "12424", date: "041419")
 
-    assert_equal "agmqpiz", @enigma.encode_all_letters("message")
+    assert_equal "agmqpiz", @enigma.encode_all_characters("message")
   end
 
-  def test_it_can_decode_all_letters_in_a_message
+  def test_it_can_decode_all_characters_in_a_message
     @enigma.stubs(key: "12424", date: "041419")
 
-    assert_equal "message", @enigma.decode_all_letters("agmqpiz")
+    assert_equal "message", @enigma.decode_all_characters("agmqpiz")
   end
 
   def test_it_can_return_hash_with_encryption_values
