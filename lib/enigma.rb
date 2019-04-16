@@ -1,9 +1,3 @@
-require './lib/shift_calculator'
-require './lib/caesar_cipher'
-require './lib/offsettable'
-require './lib/keyable'
-require './lib/datable'
-
 class Enigma
   include Offsettable, Keyable, Datable
 
@@ -40,7 +34,8 @@ class Enigma
   end
 
   def encrypt(message, key = default_key, date = default_date)
-    @key = key; @date = date
+    @key  = key
+    @date = date
     encode_all_characters(message)
     encryption_hash
   end
@@ -62,7 +57,9 @@ class Enigma
   end
 
   def decrypt(message, key, date = default_date)
-    @key = key; @date = date; @message = message
+    @key     = key
+    @date    = date
+    @message = message
     decode_all_characters(message)
     decryption_hash
   end

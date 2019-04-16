@@ -1,12 +1,12 @@
-##  Enigma Self-Assessment
+#  Enigma Self-Assessment
 
-# Functionality (3)
+## Functionality (3)
 
   - Enigma Class with encrypt and decrypt methods implemented and functional
 
   - Encrypt/decrypt command line interfaces implemented and functional
 
-# Object Oriented Programming (3)
+## Object Oriented Programming (3)
 
   - Project includes a module, albeit very basic, that can be used outside the project
 
@@ -20,7 +20,7 @@
 
   - All that being said, there's definitely a self-diagnosed case of class-phobia going on here
 
-# Test Driven Development(4)
+## Test Driven Development(4)
 
   - SimpleCov shows 100% test coverage
 
@@ -28,7 +28,7 @@
 
   - All test names clearly communicate the purpose of the test
 
-# Version Control(4)
+## Version Control(4)
 
   - 20+ pull requests with detailed comments
 
