@@ -1,3 +1,9 @@
+require './lib/shift_calculator'
+require './lib/caesar_cipher'
+require './lib/offsettable'
+require './lib/keyable'
+require './lib/datable'
+
 class Enigma
   include Offsettable, Keyable, Datable
 
